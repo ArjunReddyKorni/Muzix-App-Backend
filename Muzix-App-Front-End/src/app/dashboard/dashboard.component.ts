@@ -16,6 +16,7 @@ export class DashboardComponent {
   }
 
   movies: Movie[] = []
+  
   routeToView(id: any) {
     alert("hello")
     this.route.navigate(['movie-view', id])
@@ -31,6 +32,7 @@ export class DashboardComponent {
 
     this.movieService.getAllMovies().subscribe({
       next: data => {
+        console.log(data)
         var arr: any = data;
         this.movies = arr;
         this.popularMovies = this.movies.filter(movie => movie.keyWords[0] == "popular");

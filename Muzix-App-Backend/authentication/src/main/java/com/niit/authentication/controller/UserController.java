@@ -38,8 +38,8 @@ public class UserController {
             User user1=userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
             SimpleMailMessage msg = new SimpleMailMessage();
             msg.setTo(user.getEmail());
-            msg.setSubject("Login");
-            msg.setText("You have successfully LoggedIn.Please start Watching Movies.");
+            msg.setSubject("Login is successfull");
+            msg.setText("You have successfully LoggedIn.Start Watching Movies now.");
             javaMailSender.send(msg);
             if(user1.getEmail().equals(user.getEmail())){
                 map=securityTokenGenerator.generateToken(user);
